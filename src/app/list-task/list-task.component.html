@@ -1,0 +1,13 @@
+<div
+  class="p-3 text-light rounded shadow mb-2"
+  [class.bg-primary]="Task.status == 'started' && Task.select == false"
+  [class.bg-success]="Task.status == 'done' && Task.select == false"
+  [class.bg-danger]="Task.status == 'failed' && Task.select == false"
+  [class.bg-warning]="Task.status == 'waiting' && Task.select == false"
+  [ngClass]="{ 'bg-secondary': Task.select }"
+>
+  <b class="pr-2 border-right">{{ Task.user }}</b>
+  <span class="pl-2">{{ Task.title }}</span>
+  <input class="ml-2" type="checkbox" [(ngModel)]="Task.select" />
+  <span class="float-right">{{ Task.date }}</span>
+</div>

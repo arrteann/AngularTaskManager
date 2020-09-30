@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-4">
+      <app-new-task (addTask)="newTask($event)"></app-new-task>
+    </div>
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">List Task</div>
+        <div class="card-body">
+          <app-list-task
+            *ngFor="let task of listTask"
+            [Task]="task"
+          ></app-list-task>
+              <button
+                type="button"
+                (click)="removeTask()"
+                class="btn btn-danger"
+              >
+                Remove Task
+              </button>
+              <div class="mb-2"></div>
+              <select
+                name="status"
+                id="status"
+                class="form-control"
+                [(ngModel)]="select"
+              >
+                <option value="done">Done</option>
+                <option value="failed">Failed</option>
+                <option value="waiting">Waiting</option>
+                <option value="started">Started</option>
+              </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
